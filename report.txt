@@ -1,0 +1,226 @@
+TensorFlow 2.0 Upgrade Script
+-----------------------------
+Converted 13 files
+Detected 4 issues that require attention
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+File: utils/pc_util.py
+--------------------------------------------------------------------------------
+utils/pc_util.py:176:4: WARNING: *.save requires manual check. (This warning is only applicable if the code saves a tf.Keras model) Keras model.save now saves to the Tensorflow SavedModel format by default, instead of HDF5. To continue saving to HDF5, add the argument save_format='h5' to the save() function.
+--------------------------------------------------------------------------------
+File: utils/tf_util.py
+--------------------------------------------------------------------------------
+utils/tf_util.py:21:10: WARNING: tf.get_variable requires manual check. tf.get_variable returns ResourceVariables by default in 2.0, which have well-defined semantics and are stricter about shapes. You can disable this behavior by passing use_resource=False, or by calling tf.compat.v1.disable_resource_variables().
+utils/tf_util.py:459:12: WARNING: tf.get_variable requires manual check. tf.get_variable returns ResourceVariables by default in 2.0, which have well-defined semantics and are stricter about shapes. You can disable this behavior by passing use_resource=False, or by calling tf.compat.v1.disable_resource_variables().
+utils/tf_util.py:462:12: WARNING: tf.get_variable requires manual check. tf.get_variable returns ResourceVariables by default in 2.0, which have well-defined semantics and are stricter about shapes. You can disable this behavior by passing use_resource=False, or by calling tf.compat.v1.disable_resource_variables().
+================================================================================
+Detailed log follows:
+
+================================================================================
+================================================================================
+Input tree: 'utils/'
+================================================================================
+--------------------------------------------------------------------------------
+Processing file 'utils/pc_util.py'
+ outputting to 'utils2/pc_util.py'
+--------------------------------------------------------------------------------
+
+176:4: WARNING: *.save requires manual check. (This warning is only applicable if the code saves a tf.Keras model) Keras model.save now saves to the Tensorflow SavedModel format by default, instead of HDF5. To continue saving to HDF5, add the argument save_format='h5' to the save() function.
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+Processing file 'utils/off2hdf5.py'
+ outputting to 'utils2/off2hdf5.py'
+--------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+Processing file 'utils/model_utils.py'
+ outputting to 'utils2/model_utils.py'
+--------------------------------------------------------------------------------
+
+21:4: INFO: tf.summary.histogram requires manual check. The TF 1.x summary API cannot be automatically migrated to TF 2.0, so symbols have been converted to tf.compat.v1.summary.* and must be migrated manually. Typical usage will only require changes to the summary writing logic, not to individual calls like scalar(). For examples of the new summary API, see the Effective TF 2.0 migration document or check the TF 2.0 TensorBoard tutorials.
+21:4: INFO: Renamed 'tf.summary.histogram' to 'tf.compat.v1.summary.histogram'
+28:18: INFO: Added keywords to args of function 'tf.reduce_sum'
+34:19: INFO: Added keywords to args of function 'tf.reduce_mean'
+45:11: INFO: Added keywords to args of function 'tf.reduce_mean'
+45:11: INFO: Renamed keyword argument for tf.reduce_mean from keep_dims to keepdims
+48:15: INFO: Added keywords to args of function 'tf.reduce_mean'
+58:14: INFO: Added keywords to args of function 'tf.reduce_mean'
+60:14: INFO: Added keywords to args of function 'tf.reduce_mean'
+69:9: INFO: Renamed 'tf.Session' to 'tf.compat.v1.Session'
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+Processing file 'utils/pointnet_util_2.py'
+ outputting to 'utils2/pointnet_util_2.py'
+--------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+Processing file 'utils/__init__.py'
+ outputting to 'utils2/__init__.py'
+--------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+Processing file 'utils/tf_util.py'
+ outputting to 'utils2/tf_util.py'
+--------------------------------------------------------------------------------
+
+21:10: WARNING: tf.get_variable requires manual check. tf.get_variable returns ResourceVariables by default in 2.0, which have well-defined semantics and are stricter about shapes. You can disable this behavior by passing use_resource=False, or by calling tf.compat.v1.disable_resource_variables().
+21:10: INFO: Renamed 'tf.get_variable' to 'tf.compat.v1.get_variable'
+42:18: INFO: Changing tf.contrib.layers xavier initializer to a tf.compat.v1.keras.initializers.VarianceScaling and converting arguments.
+
+44:18: INFO: tf.truncated_normal_initializer requires manual check. Initializers no longer have the dtype argument in the constructor or partition_info argument in the __call__ method.
+The calls have been converted to compat.v1 for safety (even though they may already have been correct).
+44:18: INFO: Renamed 'tf.truncated_normal_initializer' to 'tf.compat.v1.truncated_normal_initializer'
+48:4: INFO: Renamed 'tf.add_to_collection' to 'tf.compat.v1.add_to_collection'
+85:7: INFO: Renamed 'tf.variable_scope' to 'tf.compat.v1.variable_scope'
+94:14: INFO: Added keywords to args of function 'tf.nn.conv1d'
+94:14: INFO: Renamed keyword argument for tf.nn.conv1d from value to input
+98:30: INFO: tf.constant_initializer requires manual check. Initializers no longer have the dtype argument in the constructor or partition_info argument in the __call__ method.
+The calls have been converted to compat.v1 for safety (even though they may already have been correct).
+98:30: INFO: Renamed 'tf.constant_initializer' to 'tf.compat.v1.constant_initializer'
+145:7: INFO: Renamed 'tf.variable_scope' to 'tf.compat.v1.variable_scope'
+156:16: INFO: Added keywords to args of function 'tf.nn.conv2d'
+156:16: INFO: Renamed keyword argument for tf.nn.conv2d from filter to filters
+160:32: INFO: tf.constant_initializer requires manual check. Initializers no longer have the dtype argument in the constructor or partition_info argument in the __call__ method.
+The calls have been converted to compat.v1 for safety (even though they may already have been correct).
+160:32: INFO: Renamed 'tf.constant_initializer' to 'tf.compat.v1.constant_initializer'
+207:7: INFO: Renamed 'tf.variable_scope' to 'tf.compat.v1.variable_scope'
+239:32: INFO: tf.constant_initializer requires manual check. Initializers no longer have the dtype argument in the constructor or partition_info argument in the __call__ method.
+The calls have been converted to compat.v1 for safety (even though they may already have been correct).
+239:32: INFO: Renamed 'tf.constant_initializer' to 'tf.compat.v1.constant_initializer'
+285:7: INFO: Renamed 'tf.variable_scope' to 'tf.compat.v1.variable_scope'
+300:30: INFO: tf.constant_initializer requires manual check. Initializers no longer have the dtype argument in the constructor or partition_info argument in the __call__ method.
+The calls have been converted to compat.v1 for safety (even though they may already have been correct).
+300:30: INFO: Renamed 'tf.constant_initializer' to 'tf.compat.v1.constant_initializer'
+330:7: INFO: Renamed 'tf.variable_scope' to 'tf.compat.v1.variable_scope'
+339:29: INFO: tf.constant_initializer requires manual check. Initializers no longer have the dtype argument in the constructor or partition_info argument in the __call__ method.
+The calls have been converted to compat.v1 for safety (even though they may already have been correct).
+339:29: INFO: Renamed 'tf.constant_initializer' to 'tf.compat.v1.constant_initializer'
+365:7: INFO: Renamed 'tf.variable_scope' to 'tf.compat.v1.variable_scope'
+368:14: INFO: Added keywords to args of function 'tf.reduce_max'
+368:14: INFO: Renamed keyword argument for tf.reduce_max from keep_dims to keepdims
+392:7: INFO: Renamed 'tf.variable_scope' to 'tf.compat.v1.variable_scope'
+395:14: INFO: Added keywords to args of function 'tf.nn.avg_pool'
+395:14: INFO: Renamed keyword argument for tf.nn.avg_pool from value to input
+395:14: INFO: Renamed 'tf.nn.avg_pool' to 'tf.nn.avg_pool2d'
+418:7: INFO: Renamed 'tf.variable_scope' to 'tf.compat.v1.variable_scope'
+443:7: INFO: Renamed 'tf.variable_scope' to 'tf.compat.v1.variable_scope'
+457:19: INFO: Added keywords to args of function 'tf.nn.moments'
+457:19: INFO: Renamed keyword argument for tf.nn.moments from keep_dims to keepdims
+459:12: WARNING: tf.get_variable requires manual check. tf.get_variable returns ResourceVariables by default in 2.0, which have well-defined semantics and are stricter about shapes. You can disable this behavior by passing use_resource=False, or by calling tf.compat.v1.disable_resource_variables().
+459:12: INFO: Renamed 'tf.get_variable' to 'tf.compat.v1.get_variable'
+460:40: INFO: tf.zeros_initializer requires manual check. Initializers no longer have the dtype argument in the constructor or partition_info argument in the __call__ method.
+The calls have been converted to compat.v1 for safety (even though they may already have been correct).
+460:40: INFO: Renamed 'tf.zeros_initializer' to 'tf.compat.v1.zeros_initializer'
+461:40: INFO: Multiplying scale arg of tf.contrib.layers.l2_regularizer by half to what tf.keras.regularizers.l2 expects.
+
+462:12: WARNING: tf.get_variable requires manual check. tf.get_variable returns ResourceVariables by default in 2.0, which have well-defined semantics and are stricter about shapes. You can disable this behavior by passing use_resource=False, or by calling tf.compat.v1.disable_resource_variables().
+462:12: INFO: Renamed 'tf.get_variable' to 'tf.compat.v1.get_variable'
+463:40: INFO: tf.ones_initializer requires manual check. Initializers no longer have the dtype argument in the constructor or partition_info argument in the __call__ method.
+The calls have been converted to compat.v1 for safety (even though they may already have been correct).
+463:40: INFO: Renamed 'tf.ones_initializer' to 'tf.compat.v1.ones_initializer'
+464:40: INFO: Multiplying scale arg of tf.contrib.layers.l2_regularizer by half to what tf.keras.regularizers.l2 expects.
+
+505:7: INFO: Renamed 'tf.variable_scope' to 'tf.compat.v1.variable_scope'
+507:24: INFO: Changing tf.contrib.layers xavier initializer to a tf.compat.v1.keras.initializers.VarianceScaling and converting arguments.
+
+509:24: INFO: tf.truncated_normal_initializer requires manual check. Initializers no longer have the dtype argument in the constructor or partition_info argument in the __call__ method.
+The calls have been converted to compat.v1 for safety (even though they may already have been correct).
+509:24: INFO: Renamed 'tf.truncated_normal_initializer' to 'tf.compat.v1.truncated_normal_initializer'
+511:16: INFO: Renamed 'tf.layers.conv2d' to 'tf.compat.v1.layers.conv2d'
+513:52: INFO: Multiplying scale arg of tf.contrib.layers.l2_regularizer by half to what tf.keras.regularizers.l2 expects.
+
+514:50: INFO: Multiplying scale arg of tf.contrib.layers.l2_regularizer by half to what tf.keras.regularizers.l2 expects.
+
+518:20: INFO: Renamed 'tf.layers.batch_normalization' to 'tf.compat.v1.layers.batch_normalization'
+543:7: INFO: Renamed 'tf.variable_scope' to 'tf.compat.v1.variable_scope'
+549:28: INFO: Added keywords to args of function 'tf.nn.moments'
+553:19: INFO: Added keywords to args of function 'tf.cond'
+563:16: INFO: Added keywords to args of function 'tf.cond'
+646:7: INFO: Renamed 'tf.variable_scope' to 'tf.compat.v1.variable_scope'
+647:14: INFO: Added keywords to args of function 'tf.cond'
+648:30: INFO: Changing keep_prob arg of tf.nn.dropout to rate, and recomputing value.
+
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+Processing file 'utils/pointnet_util.py'
+ outputting to 'utils2/pointnet_util.py'
+--------------------------------------------------------------------------------
+
+162:25: INFO: Renamed 'tf.layers.average_pooling2d' to 'tf.compat.v1.layers.average_pooling2d'
+165:24: INFO: Added keywords to args of function 'tf.norm'
+165:24: INFO: Renamed keyword argument for tf.norm from keep_dims to keepdims
+167:36: INFO: Added keywords to args of function 'tf.reduce_sum'
+167:36: INFO: Renamed keyword argument for tf.reduce_sum from keep_dims to keepdims
+169:29: INFO: Added keywords to args of function 'tf.reduce_sum'
+169:29: INFO: Renamed keyword argument for tf.reduce_sum from keep_dims to keepdims
+171:25: INFO: Added keywords to args of function 'tf.reduce_max'
+171:25: INFO: Renamed keyword argument for tf.reduce_max from keep_dims to keepdims
+173:25: INFO: Renamed 'tf.layers.max_pooling2d' to 'tf.compat.v1.layers.max_pooling2d'
+175:25: INFO: Renamed 'tf.layers.max_pooling2d' to 'tf.compat.v1.layers.max_pooling2d'
+176:25: INFO: Renamed 'tf.layers.average_pooling2d' to 'tf.compat.v1.layers.average_pooling2d'
+223:25: INFO: Added keywords to args of function 'tf.reduce_max'
+246:15: INFO: Added keywords to args of function 'tf.reduce_sum'
+246:15: INFO: Renamed keyword argument for tf.reduce_sum from keep_dims to keepdims
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+Processing file 'utils/plyfile.py'
+ outputting to 'utils2/plyfile.py'
+--------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+Processing file 'utils/eulerangles.py'
+ outputting to 'utils2/eulerangles.py'
+--------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+Processing file 'utils/tf_util_2.py'
+ outputting to 'utils2/tf_util_2.py'
+--------------------------------------------------------------------------------
+
+648:38: INFO: Changing keep_prob arg of tf.nn.dropout to rate, and recomputing value.
+
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+Processing file 'utils/data_provider.py'
+ outputting to 'utils2/data_provider.py'
+--------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+Processing file 'utils/data_prep_util.py'
+ outputting to 'utils2/data_prep_util.py'
+--------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+Processing file 'utils/show3d.py'
+ outputting to 'utils2/show3d.py'
+--------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------
+

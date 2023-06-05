@@ -1,0 +1,31 @@
+TensorFlow 2.0 Upgrade Script
+-----------------------------
+Converted 1 files
+Detected 0 issues that require attention
+--------------------------------------------------------------------------------
+================================================================================
+Detailed log follows:
+
+================================================================================
+--------------------------------------------------------------------------------
+Processing file 'pointnet_util.py'
+ outputting to 'pointnet_util_2.py'
+--------------------------------------------------------------------------------
+
+162:25: INFO: Renamed 'tf.layers.average_pooling2d' to 'tf.compat.v1.layers.average_pooling2d'
+165:24: INFO: Added keywords to args of function 'tf.norm'
+165:24: INFO: Renamed keyword argument for tf.norm from keep_dims to keepdims
+167:36: INFO: Added keywords to args of function 'tf.reduce_sum'
+167:36: INFO: Renamed keyword argument for tf.reduce_sum from keep_dims to keepdims
+169:29: INFO: Added keywords to args of function 'tf.reduce_sum'
+169:29: INFO: Renamed keyword argument for tf.reduce_sum from keep_dims to keepdims
+171:25: INFO: Added keywords to args of function 'tf.reduce_max'
+171:25: INFO: Renamed keyword argument for tf.reduce_max from keep_dims to keepdims
+173:25: INFO: Renamed 'tf.layers.max_pooling2d' to 'tf.compat.v1.layers.max_pooling2d'
+175:25: INFO: Renamed 'tf.layers.max_pooling2d' to 'tf.compat.v1.layers.max_pooling2d'
+176:25: INFO: Renamed 'tf.layers.average_pooling2d' to 'tf.compat.v1.layers.average_pooling2d'
+223:25: INFO: Added keywords to args of function 'tf.reduce_max'
+246:15: INFO: Added keywords to args of function 'tf.reduce_sum'
+246:15: INFO: Renamed keyword argument for tf.reduce_sum from keep_dims to keepdims
+--------------------------------------------------------------------------------
+

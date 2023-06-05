@@ -1,0 +1,6 @@
+scipy
+pcl
+pyyaml
+opencv-python
+Pillow
+matplotlib
